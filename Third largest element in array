@@ -1,0 +1,69 @@
+Given an array of distinct elements. Find the third largest element in it.
+
+Suppose you have A[] = {1, 2, 3, 4, 5, 6, 7}, its output will be 5 because it is the 3 largest element in the array A.
+
+Example 1:
+
+Input:
+N = 5
+A[] = {2,4,1,3,5}
+Output: 3
+Example 2:
+
+Input:
+N = 2
+A[] = {10,2}
+Output: -1
+Your Task:
+Complete the function thirdLargest() which takes the array a[] and the size of the array, n, as input parameters and returns the third largest element in the array. It return -1 if there are less than 3 elements in the given array.
+
+Expected Time Complexity: O(N)
+Expected Auxiliary Space: O(1)
+
+Constraints:
+1 ≤ N ≤ 105
+1 ≤ A[i] ≤ 105
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Concept:
+
+To solve the problem of finding the third largest element in an array of distinct elements, we can follow these steps:
+
+Check the Array Length: If the array has fewer than three elements, return -1 as it's not possible to find the third largest element.
+Initialize Three Variables: Maintain three variables to keep track of the first, second, and third largest elements.
+Traverse the Array: Iterate through the array and update the three variables accordingly.
+If the current element is greater than the first largest, update all three (shift first to second, second to third, and the current element to first).
+Else if the current element is greater than the second largest, update the second and third largest.
+Else if the current element is greater than the third largest, update the third largest.
+
+
+class Solution
+{
+    int thirdLargest(int a[], int n)
+    {
+	    // Your code here
+	    if(a.length<3){
+	        return -1;
+	    }
+	        int first=0;
+	        int second=0;
+	        int third=0;
+	        for(int i=0;i<n;i++){
+	            if(a[i]>first){
+	                third=second;
+	                second=first;
+	                first=a[i];
+	            }
+	            else if(a[i]>second){
+	                third=second;
+	                second=a[i];
+	            }
+	            else if(a[i]>third){
+	                third=a[i];
+	            }
+	        }
+	    return third;
+    }
+}
+
