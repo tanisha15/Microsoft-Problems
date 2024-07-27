@@ -48,6 +48,7 @@ Approach:
 1. first convert the int number to long because only then we can verify the signed 32 bit condition
 2. Then check all the values with long including reverse
 3. return the int reversed value
+4. Only reverse value is checked with condition -> read the question properly
 
 
 
